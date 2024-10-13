@@ -1,0 +1,60 @@
+{
+  "name": "siantech-username-generator",
+  "version": "1.0.0",
+  "description": "A package to generate a unique username from email or randomly selected names, mythical creatures and colorus. User can add a separator between the username, define the maximum length of a username and adds up to six random digits.",
+  "main": "dist/cjs/index.js",
+  "module": "dist/mjs/index.js",
+  "exports": {
+    ".": {
+      "import": "./dist/mjs/index.js",
+      "require": "./dist/cjs/index.js"
+    }
+  },
+  "scripts": {
+    "fix": "eslint --fix src/**/*.ts",
+    "build": "rm -fr dist/* && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && sudo ./fixup",
+    "test": "ts-mocha tests/**/*.test.ts",
+    "coverage": "nyc npm test && npm run cover:report",
+    "cover:report": "nyc report --reporter=lcov --reporter=text"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/subhamg/unique-username-generator.git"
+  },
+  "author": "SiaNTech LTD",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.7.5",
+    "eslint": "^9.12.0",
+    "mocha": "^10.7.3",
+    "nyc": "^17.1.0",
+    "ts-mocha": "^10.0.0",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "crypto": "^1.0.1"
+  },
+  "keywords": [
+    "generate",
+    "username",
+    "username-from-email",
+    "email",
+    "generate funny username",
+    "generate-funny-username",
+    "generate-mythical-creatures-username",
+    "generate mythical creatures username",
+    "generate-colour-username",
+    "generate username",
+    "generate-username-from-email",
+    "generate unique username",
+    "generate-unique-username",
+    "generate-unique-name",
+    "unique-username-generator",
+    "unique-name-generator",
+    "unique",
+    "random",
+    "user",
+    "generator",
+    "node"
+  ]
+}
