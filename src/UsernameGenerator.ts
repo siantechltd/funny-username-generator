@@ -59,6 +59,8 @@ export class UsernameGenerator {
                 segment3 = applyStyle(data.nouns[Math.floor(Math.random() * data.nouns.length)], this.style);
                 break;
             case 'fruits':
+            case 'vegetables':
+            case 'fruits-and-vegetables':
                 segment3 = applyStyle(data.fruits[Math.floor(Math.random() * data.fruits.length)], this.style);
                 break;
             case 'superheroes':
