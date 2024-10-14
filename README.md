@@ -9,6 +9,10 @@
 [![npm downloads](https://img.shields.io/npm/dm/@siantech/username-generator.svg?style=flat-square)](http://npm-stat.com/charts.html?package=@siantech/username-generator)
 ![NPM](https://img.shields.io/npm/l/@siantech/username-generator)
 
+<span class="badge-buymeacoffee">
+<a href="https://www.buymeacoffee.com/silviuks" title="Donate to this project using Buy Me A Coffee"><img src="https://img.shields.io/badge/buy%20me%20a%20coffee-donate-yellow.svg" alt="Buy Me A Coffee donate button" /></a>
+</span>
+
 ## Installing
 
 Using npm:
