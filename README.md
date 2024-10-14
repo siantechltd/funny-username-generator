@@ -36,11 +36,10 @@ It will generate username from email and add four random digits at the end of th
 
 ```javascript
 const generator = new UsernameGenerator();
-// add three random digits
 const username = generator.generateFromEmail(
   "john.smith@example.com"
 );
-console.log(username); // johnsmith2345
+console.log(username); // JohnsmithRedPotato3762 🏋️
 ```
 
 ### Randomly generate unique username.
@@ -73,7 +72,7 @@ The `options` argument mostly corresponds to the properties defined for uniqueUs
 
 | Option     | Type                                          | Description                                                                                                                                                                                                                                                                                                               | Default value | Example value |
 |------------|-----------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-| dictionary | `creatures \| nouns \| fruits-and-vegetables` | By default, the username is generated using Name + Colour + Mythical Creatures dictionaries. You can change Mythical Creatures and use another dictionary like "nouns" or "fruits-and-vegetables".<br>The provided dictionaries can be imported from the library as a separate modules and provided in the desired order. | creatures     | 'nouns'       |
+| dictionary | `creatures \| nouns \| fruits-and-vegetables` | By default, the username is generated using Name + Colour + Mythical Creatures dictionaries. You can change Mythical Creatures and use another dictionary like "nouns" or "fruits-and-vegetables".<br>The provided dictionaries can be imported from the library as a separate modules and provided in the desired order. | creatures     | `nouns`       |
 | separator  | `string`                                      | A string separator to be used for separate the words generated. The default separator is set to be empty string.                                                                                                                                                                                                          | ""            | `-`           |
 | emoji      | `boolean`                                     | If set to true, it will display a random emoji at the end of the generated Username.                                                                                                                                                                                                                                      | false         | true          |
 | style      | `lowerCase \| upperCase \| camel`             | The default value is set to `lowerCase` and it will return a lower case username.<br>By setting the value to `upperCase`, the words, will be returned with all the letters in upper case format.<br>The `camel` option will capitalize each word of the unique username generated                                         | lowerCase     | `lowerCase`   |

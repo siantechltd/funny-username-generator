@@ -23,24 +23,29 @@ export class UsernameGenerator {
             }
         }
     }
-    generate() {
+    generateFromEmail(email) {
+        const nameParts = email.replace(/@.+/, "");
+        const name = applyStyle(nameParts.replace(/[&/\\#,+()$~%._@'":*?<>{}]/g, ""), this.style);
+        return this.generate(name);
+    }
+    generate(name) {
         let username;
-        const name = this.applyStyle(data.names[Math.floor(Math.random() * data.names.length)]);
-        const color = this.applyStyle(data.colors[Math.floor(Math.random() * data.colors.length)]);
+        name = name ?? applyStyle(data.names[Math.floor(Math.random() * data.names.length)], this.style);
+        const color = applyStyle(data.colors[Math.floor(Math.random() * data.colors.length)], this.style);
         let segment3;
         switch (this.dictionary) {
             case 'nouns':
-                segment3 = this.applyStyle(data.nouns[Math.floor(Math.random() * data.nouns.length)]);
+                segment3 = applyStyle(data.nouns[Math.floor(Math.random() * data.nouns.length)], this.style);
                 break;
             case 'fruits':
-                segment3 = this.applyStyle(data.fruits[Math.floor(Math.random() * data.fruits.length)]);
+                segment3 = applyStyle(data.fruits[Math.floor(Math.random() * data.fruits.length)], this.style);
                 break;
             case 'superheroes':
-                segment3 = this.applyStyle(data.superheroes[Math.floor(Math.random() * data.superheroes.length)]);
+                segment3 = applyStyle(data.superheroes[Math.floor(Math.random() * data.superheroes.length)], this.style);
                 break;
             default:
             case 'creatures':
-                segment3 = this.applyStyle(data.creatures[Math.floor(Math.random() * data.creatures.length)]);
+                segment3 = applyStyle(data.creatures[Math.floor(Math.random() * data.creatures.length)], this.style);
                 break;
         }
         const randomNumber = Math.floor(getRandomInt(1000, 9000)).toString();
@@ -51,16 +56,19 @@ export class UsernameGenerator {
         }
         return username;
     }
-    applyStyle(text) {
-        switch (this.style) {
-            case 'uppercase':
-                return text.toUpperCase();
-            case 'camel':
-                return text.charAt(0).toUpperCase() + text.slice(1);
-            default:
-            case 'lowercase':
-                return text.toLowerCase();
-        }
+}
+function applyStyle(text, style) {
+    if (!text) {
+        return '';
+    }
+    switch (style) {
+        case 'uppercase':
+            return text.toUpperCase();
+        case 'camel':
+            return text.charAt(0).toUpperCase() + text.slice(1);
+        default:
+        case 'lowercase':
+            return text.toLowerCase();
     }
 }
 //# sourceMappingURL=UsernameGenerator.js.map

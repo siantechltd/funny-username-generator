@@ -10,7 +10,7 @@ export declare class UsernameGenerator {
     style: string;
     dictionary: string;
     constructor(config: config);
-    generate(): string;
-    applyStyle(text: string): string;
+    generateFromEmail(email: string): string;
+    generate(name?: string): string;
 }
 export {};
