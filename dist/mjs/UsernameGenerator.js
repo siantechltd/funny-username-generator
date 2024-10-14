@@ -1,13 +1,12 @@
 const data = require('./data');
-const crypto = require("crypto");
 const getRandomInt = (min, max) => {
-    const randomBuffer = (0, crypto.randomBytes)(4);
-    const randomInt = randomBuffer.readUInt32BE(0);
-    return min + (randomInt % (max - min + 1));
+    return Math.floor(Math.random() * (max - min + 1) + min);
 };
 export class UsernameGenerator {
     separator = "";
     showEmoji = false;
+    style = 'lowercase';
+    dictionary = 'creatures';
     constructor(config) {
         if (config) {
             if (config.separator) {
@@ -16,20 +15,52 @@ export class UsernameGenerator {
             if (config.showEmoji) {
                 this.showEmoji = config.showEmoji;
             }
+            if (config.style) {
+                this.style = config.style.toLowerCase();
+            }
+            if (config.dictionary) {
+                this.dictionary = config.dictionary.toLowerCase();
+            }
         }
     }
     generate() {
         let username;
-        const name = data.names[Math.floor(Math.random() * data.names.length)];
-        const color = data.colors[Math.floor(Math.random() * data.colors.length)];
-        const creatures = data.creatures[Math.floor(Math.random() * data.creatures.length)];
+        const name = this.applyStyle(data.names[Math.floor(Math.random() * data.names.length)]);
+        const color = this.applyStyle(data.colors[Math.floor(Math.random() * data.colors.length)]);
+        let segment3;
+        switch (this.dictionary) {
+            case 'nouns':
+                segment3 = this.applyStyle(data.nouns[Math.floor(Math.random() * data.nouns.length)]);
+                break;
+            case 'fruits':
+                segment3 = this.applyStyle(data.fruits[Math.floor(Math.random() * data.fruits.length)]);
+                break;
+            case 'superheroes':
+                segment3 = this.applyStyle(data.superheroes[Math.floor(Math.random() * data.superheroes.length)]);
+                break;
+            default:
+            case 'creatures':
+                segment3 = this.applyStyle(data.creatures[Math.floor(Math.random() * data.creatures.length)]);
+                break;
+        }
         const randomNumber = Math.floor(getRandomInt(1000, 9000)).toString();
         const emoji = data.emojis[Math.floor(Math.random() * data.emojis.length)];
-        username = name + this.separator + color + this.separator + creatures + this.separator + randomNumber;
+        username = name + this.separator + color + this.separator + segment3 + this.separator + randomNumber;
         if (this.showEmoji) {
             username += " " + emoji;
         }
         return username;
+    }
+    applyStyle(text) {
+        switch (this.style) {
+            case 'uppercase':
+                return text.toUpperCase();
+            case 'camel':
+                return text.charAt(0).toUpperCase() + text.slice(1);
+            default:
+            case 'lowercase':
+                return text.toLowerCase();
+        }
     }
 }
 //# sourceMappingURL=UsernameGenerator.js.map

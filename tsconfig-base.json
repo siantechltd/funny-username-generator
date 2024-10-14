@@ -1,12 +1,10 @@
 {
   "compilerOptions": {
-    "module": "Node16",
-    "target": "ES2022",
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
     "baseUrl": "src",
     "declaration": true,
-    "moduleResolution": "Node16",
+    "moduleResolution": "node",
     "noFallthroughCasesInSwitch": true,
     "pretty": true,
     "resolveJsonModule": true,
@@ -21,8 +19,9 @@
     "forceConsistentCasingInFileNames": true,
     "noImplicitThis": true,
     "strictFunctionTypes": true,
-    "removeComments": true
+    "removeComments": true,
   },
+  "compileOnSave": false,
   "exclude": ["node_modules", "dist"],
   "include": ["src"]
 }

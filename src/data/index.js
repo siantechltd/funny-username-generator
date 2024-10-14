@@ -1,19 +1,30 @@
 //names
 const names = require('./names')
-exports.names = names.default
 
 // colors
 const colors = require("./colors");
-exports.colors = colors.default;
 
 // creatures
 const creatures = require("./creatures");
-exports.creatures = creatures.default;
 
 // nouns
 const nouns = require("./nouns");
-exports.nouns = nouns.default;
+
+// fruits
+const fruits = require("./fruits");
+
+// superheroes
+const superheroes = require("./superheroes");
 
 // emojis
 const emojis = require("./emojis");
-exports.emojis = emojis.default;
+
+module.exports = {
+    names: names.default,
+    colors: colors.default,
+    creatures: creatures.default,
+    nouns: nouns.default,
+    emojis: emojis.default,
+    fruits: fruits.default,
+    superheroes: superheroes.default,
+}

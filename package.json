@@ -1,7 +1,7 @@
 {
-  "name": "siantech-username-generator",
+  "name": "@siantech/username-generator",
   "version": "1.0.0",
-  "description": "A package to generate a unique username from email or randomly selected names, mythical creatures and colorus. User can add a separator between the username, define the maximum length of a username and adds up to six random digits.",
+  "description": "@siantech/username-generator is package designed to generate unique usernames based on an email, or by randomly combining names, mythical creatures, nouns and colors. Users can customize the username by adding a separator, selecting what dictionaries to use, and optionally appending up to four random digits.",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "exports": {
@@ -12,6 +12,7 @@
   },
   "scripts": {
     "fix": "eslint --fix src/**/*.ts",
+    "buildx": "rm -fr dist/* && tsc",
     "build": "rm -fr dist/* && tsc -p tsconfig-mjs.json && tsc -p tsconfig-cjs.json && sudo ./fixup",
     "test": "ts-mocha tests/**/*.test.ts",
     "coverage": "nyc npm test && npm run cover:report",
@@ -19,12 +20,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/subhamg/unique-username-generator.git"
+    "url": "git+https://github.com/siantechltd/username-generator.git"
   },
   "author": "SiaNTech LTD",
   "license": "MIT",
   "devDependencies": {
-    "@types/node": "^22.7.5",
+    "@typescript-eslint/eslint-plugin": "^8.8.1",
+    "benchmark": "^2.1.4",
     "eslint": "^9.12.0",
     "mocha": "^10.7.3",
     "nyc": "^17.1.0",
@@ -32,7 +34,7 @@
     "typescript": "^5.6.3"
   },
   "dependencies": {
-    "crypto": "^1.0.1"
+    "@types/node": "^22.7.5"
   },
   "keywords": [
     "generate",
@@ -56,5 +58,12 @@
     "user",
     "generator",
     "node"
-  ]
+  ],
+  "directories": {
+    "test": "tests"
+  },
+  "bugs": {
+    "url": "https://github.com/siantechltd/username-generator/issues"
+  },
+  "homepage": "https://github.com/siantechltd/username-generator#readme"
 }

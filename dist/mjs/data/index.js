@@ -1,12 +1,18 @@
 "use strict";
 const names = require('./names');
-exports.names = names.default;
 const colors = require("./colors");
-exports.colors = colors.default;
 const creatures = require("./creatures");
-exports.creatures = creatures.default;
 const nouns = require("./nouns");
-exports.nouns = nouns.default;
+const fruits = require("./fruits");
+const superheroes = require("./superheroes");
 const emojis = require("./emojis");
-exports.emojis = emojis.default;
+module.exports = {
+    names: names.default,
+    colors: colors.default,
+    creatures: creatures.default,
+    nouns: nouns.default,
+    emojis: emojis.default,
+    fruits: fruits.default,
+    superheroes: superheroes.default,
+};
 //# sourceMappingURL=index.js.map
