@@ -2,6 +2,7 @@
   "name": "@siantech/username-generator",
   "version": "1.0.0",
   "description": "@siantech/username-generator is package designed to generate unique usernames based on an email, or by randomly combining names, mythical creatures, nouns and colors. Users can customize the username by adding a separator, selecting what dictionaries to use, and optionally appending up to four random digits.",
+  "website": "https://github.com/siantechltd/username-generator.git",
   "main": "dist/cjs/index.js",
   "module": "dist/mjs/index.js",
   "exports": {
